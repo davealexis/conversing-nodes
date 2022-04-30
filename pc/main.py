@@ -25,7 +25,6 @@ class SpeakingNode():
         with open('./conversation.json') as json_file:
             self.conversation = json.load(json_file)
 
-        self.conversation_index = 0
         self.conversation_length = len(self.conversation)
         self.speaker = win32com.client.Dispatch("SAPI.SpVoice")
 
@@ -86,9 +85,9 @@ class SpeakingNode():
         if payload == "::hello::":
             if not self.is_partner_online:
                 print("Partner is online!  Let's go!")
-                self.is_partner_online = True
                 self.speaker.Speak("Hello!")
 
+            self.is_partner_online = True
             return
 
         # Get the current conversation index from the message,

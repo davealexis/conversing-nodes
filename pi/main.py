@@ -83,9 +83,9 @@ class SpeakingNode():
         if payload == "::hello::":
             if not self.is_partner_online:
                 print("Partner is online!  Let's go!")
-                self.is_partner_online = True
-                subprocess.call([ 'espeak -v en+f5 -k 20 -s 150 -a 100 -g 5 "Hello!" 2>/dev/null'], shell=True)
+                # subprocess.call([ 'espeak -v en+f5 -k 20 -s 150 -a 100 -g 5 "Hello!" 2>/dev/null'], shell=True)
 
+            self.is_partner_online = True
             return
 
         # Get the current conversation index from the message,
